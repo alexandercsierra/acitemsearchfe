@@ -65,6 +65,8 @@ export default function Add(props) {
                                 endTime: '-1',
                                 conditions: ''
                             })
+
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
                             
                             axios.get('https://acitems.herokuapp.com/api/search')
                                 .then(res=>props.setList(res.data))
