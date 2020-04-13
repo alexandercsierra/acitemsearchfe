@@ -180,3 +180,6 @@ export const InputDiv = styled.div`
     width: 60%;
     margin: 0 auto;
 `;
+
+export const Check = styled.input`
+`;

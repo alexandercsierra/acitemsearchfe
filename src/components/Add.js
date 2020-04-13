@@ -126,10 +126,12 @@ export default function Add(props) {
                     <option value="bug">Bug</option>
                     <option value="fish">Fish</option>
                     <option value="fossil">Fossil</option>
+                    <option value="shell">Shell</option>
                     <option value="item">Item</option>
                     <option value="clothing">Clothing</option>
-                    <option value="shell">Shell</option>
                     <option value="ingredient">Ingredient</option>
+                    <option value="wallpaper">Wallpaper</option>
+                    <option value="flooring">Flooring/Rug</option>
                 </Select>
 
                 <Label>Starting Month</Label>

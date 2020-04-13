@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {SearchBar, SearchContainer, SearchDiv, RowDiv, NumInput, RemoveButton, SearchResults, InputDiv, Collected, Label} from '../styles'
+import {SearchBar, SearchContainer, SearchDiv, RowDiv, NumInput, RemoveButton, SearchResults, InputDiv, Collected, Label, Check} from '../styles'
 
 export default function Search(props) {
     const [selected, setSelected] = useState([]);
@@ -118,7 +118,7 @@ export default function Search(props) {
                 })}
                 {selected.length > 0 && <button onClick={clearAll}>Clear All</button>}
                 <label htmlFor="box" aria_label="stuff">Drop-Off Box</label>
-                <input type="checkbox" id="box" checked={isChecked} onClick={handleCheck}/>
+                <Check className="switch" type="checkbox" id="box" checked={isChecked} onClick={handleCheck}/>
                 <RowDiv>
                     <h3 style={{fontSize: "1.5rem", paddingRight: "1%"}}>Total:   </h3>
                     <p style={{fontSize: "1.5rem"}}><span style={{color: "#ffd04f"}}>{total}</span>{` Bells`}</p>
