@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
-import {SearchBar, SearchContainer, SearchDiv, RowDiv, NumInput, RemoveButton, SearchResults, InputDiv, Collected} from '../styles'
+import {SearchBar, SearchContainer, SearchDiv, RowDiv, NumInput, RemoveButton, SearchResults, InputDiv, Collected, Label} from '../styles'
 
 export default function Search(props) {
     const [selected, setSelected] = useState([]);
     const [total, setTotal] = useState(0);
     const [changed, setChanged] = useState(false);
     const [search, setSearch] = useState("");
+    const [isChecked, setIsChecked] = useState(false);
     const handleChange = (e)=>{
         setSearch(e.target.value);
         props.setFilteredList(props.list.filter(item=>{
@@ -18,6 +19,17 @@ export default function Search(props) {
         }))
     }
 
+    const handleCheck = e => {
+        setIsChecked(!isChecked)
+    }
+
+    useEffect(()=>{
+        if(isChecked){
+            setTotal(total*.8)
+        } else{
+            setTotal(total/.8)
+        }
+    },[isChecked])
 
     const removeItem = (item) => {
         let arr = [...selected];
@@ -105,6 +117,8 @@ export default function Search(props) {
                     )
                 })}
                 {selected.length > 0 && <button onClick={clearAll}>Clear All</button>}
+                <label htmlFor="box" aria_label="stuff">Drop-Off Box</label>
+                <input type="checkbox" id="box" checked={isChecked} onClick={handleCheck}/>
                 <RowDiv>
                     <h3 style={{fontSize: "1.5rem", paddingRight: "1%"}}>Total:   </h3>
                     <p style={{fontSize: "1.5rem"}}><span style={{color: "#ffd04f"}}>{total}</span>{` Bells`}</p>
