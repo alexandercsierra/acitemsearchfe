@@ -20,8 +20,8 @@ function App() {
   const [filteredList, setFilteredList] = useState([]);
   return (
     <div className="App">
-      <Nav/>
       <div className="filter">
+      <Nav/>
         
         <div>
           <Route exact path="/">

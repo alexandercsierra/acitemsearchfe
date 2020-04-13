@@ -1,6 +1,12 @@
 .App {
   text-align: center;
-  background-image: url('https://s3.amazonaws.com/spoonflower/public/design_thumbnails/0050/6144/rgrass_pattern_3x3_shop_preview.png');
+  /* background-image: url('https://s3.amazonaws.com/spoonflower/public/design_thumbnails/0050/6144/rgrass_pattern_3x3_shop_preview.png'); */
+  /* background-image: url('https://nintendosoup.com/wp-content/uploads/2020/02/animal-crossing-new-horizons-walmart-wallpaper-feb192020-1.jpeg'); */
+  background-image: url('https://catwithmonocle.com/wp-content/uploads/2020/02/ac-new-horizons-nook-pattern-1920x1200-1.jpg');
+  /* background-image: url('https://images4.alphacoders.com/107/1070856.jpg'); */
+  /* background-image: url('https://i0.wp.com/www.nintendo-insider.com/wp-content/uploads/2020/03/animal_crossing_new_horizons_wallpaper_image.jpg?fit=1280%2C720&ssl=1'); */
+  background-size: cover;
+  background-position: 50% 30%;
   /* color: #FFD04F; */
   color: white;
   height: 150vh;
@@ -43,16 +49,17 @@
 
 .listItem{
   cursor:pointer;
-  background: white;
-  color: black;
+  background: #a46f3d;
+  color: #ffd04f;
   margin:0;
   padding: 1rem 0;
   font-weight: 700;
+  font-size: 1.3rem;
 }
 
 .listItem:hover{
-  background: black;
-  color: white;
+  color: #a46f3d;
+  background: #ffd04f;
 }
 
 .collected{
@@ -63,3 +70,34 @@
   background: rgba(0,0,0,.3);
   height: 150vh;
 }
+
+.active{
+  background: #00562e;
+}
+
+.title{
+  color: #ffd04f;
+  text-shadow: 4px 3px 0px #a46f3d, 9px 8px 0px rgba(164, 111, 61, .15);
+  margin: 0;
+  padding: 2%;
+  font-size: 3rem;
+}
+
+/* @media(max-width: 940px){
+  .listItem{
+    font-size: 1rem;
+  }
+} */
+@media(max-width: 500px){
+  .title{
+    font-size: 2rem;
+  }
+}
+
+@media(max-width: 360px){
+  .title{
+    font-size: 1.5rem;
+  }
+}
+
+

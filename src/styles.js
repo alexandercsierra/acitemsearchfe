@@ -5,7 +5,8 @@ export const Form = styled.form`
     flex-direction: column;
     width: 50%;
     margin: 0 auto;
-    background: rgba(0,0,0,.4);
+    background: rgb(0,0,0);
+    background-image: url('https://s3.amazonaws.com/spoonflower/public/design_thumbnails/0050/6144/rgrass_pattern_3x3_shop_preview.png');
     padding: 2%;
     border-radius: 5px;
 
@@ -56,6 +57,7 @@ export const Label = styled.label`
     // border: 1px solid red;
     font-size: 1.2rem;
     text-align: left;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.75);
 `;
 
 export const Button = styled.button`
@@ -100,7 +102,12 @@ export const SearchContainer = styled.div`
 export const SearchDiv = styled.div`
     width: 50%;
     margin: 0;
-    z-index: 1;
+    @media(max-width: 940px){
+        width: 90%;
+    }
+    @media(max-width: 575px){
+        width: 100%;
+    }
 `;
 
 export const RowDiv = styled.div`
@@ -134,7 +141,7 @@ export const RemoveButton = styled.button`
 `;
 
 export const InfoButton = styled.div`
-    background: transparent;
+    background: rgba(0,0,0,.3);
     border: 1px solid white;
     color: white;
     font-size: .8rem;
@@ -150,13 +157,23 @@ export const InfoButton = styled.div`
 `;
 
 export const SearchResults = styled.div`
-    background: white;
+    background: #a46f3d;
     color: black;
     width: 100%;
     padding: .3%;
     margin-top: 0;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+`;
+
+export const Collected = styled.div`
+    background: #a46f3d;
+    color: #ffd04f;
+    width: 100%;
+    padding: .3%;
+    margin-top: 0;
+    font-size: 1.3rem;
+
 `;
 
 export const InputDiv = styled.div`

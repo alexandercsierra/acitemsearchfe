@@ -19,7 +19,7 @@ export default function Add() {
         end: 'am'
     })
 
-    const [message, setMessage] = useState("peacock butterfly");
+    const [message, setMessage] = useState("");
 
     const handleChange = e => {
         setCurrentItem({
@@ -103,8 +103,8 @@ export default function Add() {
 
     return (
         <div>
-            <h1>Add an Item</h1>
-            <h2>You have added: {message}</h2>
+            <h1 class="title">Add an Item</h1>
+            {message && <h2>You have added: {message}</h2>}
             <Form onSubmit={onSubmit}>
                 <Label htmlFor="name">Name</Label>
                 <Input placeholder="name" name="name" id="name" onChange={handleChange} value={currentItem.name} required/>

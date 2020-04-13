@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {SearchBar, SearchContainer, SearchDiv, RowDiv, NumInput, RemoveButton, SearchResults, InputDiv} from '../styles'
+import {SearchBar, SearchContainer, SearchDiv, RowDiv, NumInput, RemoveButton, SearchResults, InputDiv, Collected} from '../styles'
 
 export default function Search(props) {
     const [selected, setSelected] = useState([]);
@@ -47,7 +47,7 @@ export default function Search(props) {
 
     return (
         <div>
-            <h1>AC: NH Calc</h1>
+            <h1 class="title">Animal Crossing New Horizons Calculator</h1>
             <SearchContainer>
             <SearchDiv>
                 <h3>Search for an item</h3>
@@ -69,7 +69,7 @@ export default function Search(props) {
                 <h2>Collected</h2>
                 {selected.map((item, index)=>{
                     return(
-                        <div>
+                        <Collected>
                             <span className="collected" key={index}>{`${item.name}: ${item.price} Bells`}</span>
                             {/* <select onChange={(e)=>{
                                 item.mult=e.target.value;
@@ -82,12 +82,12 @@ export default function Search(props) {
                                 item.mult=e.target.value;
                                 setChanged(!changed)}}/>
                             <RemoveButton onClick={()=>{removeItem(item)}}>X</RemoveButton>
-                        </div>
+                        </Collected>
                     )
                 })}
                 <RowDiv>
-                    <h4>Total:   </h4>
-                    <p>{`${total} Bells`}</p>
+                    <h3 style={{fontSize: "1.5rem", paddingRight: "1%"}}>Total:   </h3>
+                    <p style={{fontSize: "1.5rem"}}><span style={{color: "#ffd04f"}}>{total}</span>{` Bells`}</p>
                 </RowDiv>
             </SearchDiv>
         </SearchContainer>
