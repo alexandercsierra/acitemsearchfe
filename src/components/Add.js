@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import axios from 'axios'
 import {Form, Input, Select, TimeContainer, Textarea, Label, Button, InfoButton} from '../styles'
 
-export default function Add() {
+export default function Add(props) {
     const [currentItem, setCurrentItem] = useState({
         name: '',
         price: '',
@@ -65,6 +65,7 @@ export default function Add() {
                                 endTime: '-1',
                                 conditions: ''
                             })
+                            props.setToggle(!props.toggle);
 
                         })
                         .catch(err=>console.log(err))
