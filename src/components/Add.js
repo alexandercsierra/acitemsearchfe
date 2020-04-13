@@ -132,6 +132,8 @@ export default function Add(props) {
                     <option value="ingredient">Ingredient</option>
                     <option value="wallpaper">Wallpaper</option>
                     <option value="flooring">Flooring/Rug</option>
+                    <option value="other">Other</option>
+
                 </Select>
 
                 <Label>Starting Month</Label>
