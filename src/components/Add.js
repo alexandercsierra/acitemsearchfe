@@ -65,7 +65,10 @@ export default function Add(props) {
                                 endTime: '-1',
                                 conditions: ''
                             })
-                            props.setToggle(!props.toggle);
+                            
+                            axios.get('https://acitems.herokuapp.com/api/search')
+                                .then(res=>props.setList(res.data))
+                                .catch(err=>console.log(err))
 
                         })
                         .catch(err=>console.log(err))

@@ -13,12 +13,11 @@ function App() {
     axios.get('https://acitems.herokuapp.com/api/search')
       .then(res=>setList(res.data))
       .catch(err=>console.log(err))
-  },[toggle])
+  })
 
 
   const [list, setList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
-  const [toggle, setToggle] = useState(false);
   return (
     <div className="App">
       <div className="filter">
@@ -29,7 +28,7 @@ function App() {
             <Search list={list} filteredList={filteredList} setFilteredList={setFilteredList}/>
           </Route>
           <Route path="/add">
-            <Add toggle={toggle} setToggle={setToggle}/>
+            <Add setList={setList}/>
           </Route>
           
         </div>
