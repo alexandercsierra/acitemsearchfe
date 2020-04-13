@@ -11,13 +11,16 @@ function App() {
 
   useEffect(()=>{
     axios.get('https://acitems.herokuapp.com/api/search')
-      .then(res=>setList(res.data))
+      .then(res=>{
+        setList(res.data);
+        setMasterList(res.data);
+      })
       .catch(err=>console.log(err))
-  })
+  },[])
 
-
+  const [masterList, setMasterList] = useState([]);
   const [list, setList] = useState([]);
-  const [filteredList, setFilteredList] = useState([]);
+  const [filteredList, setFilteredList] = useState(list);
   return (
     <div className="App">
       <div className="filter">
@@ -25,7 +28,7 @@ function App() {
         
         <div>
           <Route exact path="/">
-            <Search list={list} filteredList={filteredList} setFilteredList={setFilteredList}/>
+            <Search setList={setList} list={list} filteredList={filteredList} setFilteredList={setFilteredList} masterList={masterList} setMasterList={setMasterList}/>
           </Route>
           <Route path="/add">
             <Add setList={setList}/>

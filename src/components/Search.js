@@ -5,7 +5,9 @@ export default function Search(props) {
     const [selected, setSelected] = useState([]);
     const [total, setTotal] = useState(0);
     const [changed, setChanged] = useState(false);
+    const [search, setSearch] = useState("");
     const handleChange = (e)=>{
+        setSearch(e.target.value);
         props.setFilteredList(props.list.filter(item=>{
             let lowerItem = item.name.toLowerCase()
             let lowerSearch = e.target.value.toLowerCase();
@@ -33,8 +35,20 @@ export default function Search(props) {
         if(selected.includes(item)===false){
             item.mult = 1;
             setSelected([...selected, item])
+            setSearch("");
+            let filter = props.list.filter(thing=>thing!==item)
+            props.setList(filter)
+            props.setFilteredList([])
         }
+        
 
+    }
+
+    const clearAll = (e)=>{
+        e.preventDefault();
+        setSelected([])
+        props.setList(props.masterList);
+        setSearch("");
     }
 
     useEffect(()=>{
@@ -45,15 +59,20 @@ export default function Search(props) {
         setTotal(reduced);
     },[selected, changed])
 
+
+
     return (
         <div>
-            <h1 class="title">Animal Crossing New Horizons Calculator</h1>
+            <h1 className="title">Animal Crossing New Horizons Calculator</h1>
             <SearchContainer>
             <SearchDiv>
                 <h3>Search for an item</h3>
                 <InputDiv>
-                    <form>
-                        <SearchBar onChange={handleChange}/>
+                    <form onSubmit={(e)=>{
+                        e.preventDefault();
+                        addToSelected(selected, props.filteredList[0])
+                    }}>
+                        <SearchBar value={search} onChange={handleChange}/>
                     </form>
                     <SearchResults>
                         {/* <h2>Filtered</h2> */}
@@ -85,6 +104,7 @@ export default function Search(props) {
                         </Collected>
                     )
                 })}
+                {selected.length > 0 && <button onClick={clearAll}>Clear All</button>}
                 <RowDiv>
                     <h3 style={{fontSize: "1.5rem", paddingRight: "1%"}}>Total:   </h3>
                     <p style={{fontSize: "1.5rem"}}><span style={{color: "#ffd04f"}}>{total}</span>{` Bells`}</p>
