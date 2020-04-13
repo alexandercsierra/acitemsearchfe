@@ -9,8 +9,8 @@ export default function Add() {
         category: '',
         startMonth: '',
         endMonth: '',
-        startTime: '',
-        endTime: '',
+        startTime: '-1',
+        endTime: '-1',
         conditions: ''
     })
 
@@ -61,8 +61,8 @@ export default function Add() {
                                 category: '',
                                 startMonth: '',
                                 endMonth: '',
-                                startTime: '',
-                                endTime: '',
+                                startTime: '-1',
+                                endTime: '-1',
                                 conditions: ''
                             })
 
