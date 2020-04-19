@@ -4,7 +4,7 @@ import axios from 'axios'
 import {Route} from 'react-router-dom'
 import Search from './components/Search'
 import Nav from './components/Nav'
-import Add from './components/Add'
+import Add from './components/AddFormComponents/Add'
 
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
       <div className="filter">
       <Nav/>
         
-        <div>
+        <div >
           <Route exact path="/">
             <Search setList={setList} list={list} filteredList={filteredList} setFilteredList={setFilteredList} masterList={masterList} setMasterList={setMasterList}/>
           </Route>

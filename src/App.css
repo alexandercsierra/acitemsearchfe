@@ -78,7 +78,7 @@
 .title{
   color: #ffd04f;
   text-shadow: 4px 3px 0px #a46f3d, 9px 8px 0px rgba(164, 111, 61, .15);
-  margin: 0;
+  margin: 6% 0 0 0;
   padding: 2%;
   font-size: 3rem;
 }
@@ -101,4 +101,32 @@
 }
 
 
+
+.MuiSelect-select.MuiSelect-select {
+  background: white;
+  border-radius: 5px;
+}
+
+.MuiSelect-select.MuiSelect-select:focus{
+  background-color: white;
+  border-radius: 5px;
+}
+
+.MuiOutlinedInput-multiline{
+  background: white;
+  border-radius: 5px;
+}
+
+.MuiInputBase-root, .MuiFilledInput-root{
+  background: white;
+  border-radius: 5px;
+}
+
+.MuiInput-underline{
+  /* color: red !important; */
+}
+
+.MuiFilledInput-root{
+  background-color: white !important;
+}
 

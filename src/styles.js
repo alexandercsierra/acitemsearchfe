@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Form = styled.form`
     display: flex;
     flex-direction: column;
+    justify-content: center;
     width: 50%;
     margin: 0 auto;
     background: rgb(0,0,0);
@@ -10,16 +11,20 @@ export const Form = styled.form`
     padding: 2%;
     border-radius: 5px;
 
+    @media(max-width: 1425px){
+        width:60%;
+    }
+
     @media(max-width: 830px){
-        width:65%;
+        width:85%;
     }
 
     @media(max-width: 580px){
-        width:80%;
+        width:90%;
     }
 
     @media(max-width: 440px){
-        width:93%;
+        width:100%;
     }
 
 `;
@@ -42,6 +47,17 @@ export const Select = styled.select`
 export const TimeContainer = styled.div`
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    width: 25%;
+    @media(max-width: 1425px){
+        width: 35%;
+    }
+    @media(max-width: 620px){
+        width: 45%;
+    }
+    @media(max-width: 390px){
+        width: 48%;
+    }
 `;
 
 export const Textarea = styled.textarea`
@@ -123,7 +139,7 @@ export const NumInput=styled.input`
     border: none;
     font-size: 1rem;
     margin-bottom: 2%;
-    width: 5%;
+    width: 50%;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
 `;
@@ -134,7 +150,7 @@ export const RemoveButton = styled.button`
     border: none;
     font-size: 1rem;
     margin-bottom: 2%;
-    width: 5%;
+    width: 20%;
     background: red;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
@@ -167,12 +183,19 @@ export const SearchResults = styled.div`
 `;
 
 export const Collected = styled.div`
-    background: #a46f3d;
+    display: flex;
+    // background: #a46f3d;
+    background: #5E8D6F;
     color: #ffd04f;
     width: 100%;
     padding: .3%;
     margin-top: 0;
     font-size: 1.3rem;
+    @media(max-width: 500px){
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
 `;
 
@@ -182,4 +205,9 @@ export const InputDiv = styled.div`
 `;
 
 export const Check = styled.input`
+`;
+
+export const CollectedItem = styled.div`
+    width: 70%;
+    border: 1px solid red;
 `;

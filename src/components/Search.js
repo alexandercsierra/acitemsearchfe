@@ -1,5 +1,25 @@
 import React, {useState, useEffect} from 'react'
-import {SearchBar, SearchContainer, SearchDiv, RowDiv, NumInput, RemoveButton, SearchResults, InputDiv, Collected, Label, Check} from '../styles'
+import {SearchBar, SearchContainer, SearchDiv, RowDiv, NumInput, RemoveButton, CollectedItem, SearchResults, InputDiv, Collected, Label, Check} from '../styles'
+import { Input } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
+import { withStyles } from '@material-ui/core/styles';
+import { green } from '@material-ui/core/colors';
+import Checkbox from '@material-ui/core/Checkbox';
+import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@material-ui/icons/CheckBox';
+
+
+const GreenCheckbox = withStyles({
+    root: {
+      color: "white",
+      '&$checked': {
+        color: "#00562E",
+      },
+    },
+    checked: {},
+  })((props) => <Checkbox color="default" {...props} />);
 
 export default function Search(props) {
     const [selected, setSelected] = useState([]);
@@ -7,6 +27,8 @@ export default function Search(props) {
     const [changed, setChanged] = useState(false);
     const [search, setSearch] = useState("");
     const [isChecked, setIsChecked] = useState(false);
+
+
     const handleChange = (e)=>{
         setSearch(e.target.value);
         props.setFilteredList(props.list.filter(item=>{
@@ -74,7 +96,7 @@ export default function Search(props) {
 
 
     return (
-        <div>
+        <div style={{background: "rgba(30, 144, 255, .5)", width: "80%", height: "120vh", margin: "0 auto", borderRadius: "25px"}}>
             <h1 className="title">Animal Crossing New Horizons Calculator</h1>
             <SearchContainer>
             <SearchDiv>
@@ -84,7 +106,8 @@ export default function Search(props) {
                         e.preventDefault();
                         addToSelected(selected, props.filteredList[0])
                     }}>
-                        <SearchBar value={search} onChange={handleChange}/>
+                        {/* <SearchBar value={search} onChange={handleChange}/> */}
+                        <Input style={{width:"100%", padding: ".5% 2%"}} value={search} onChange={handleChange}/>
                     </form>
                     <SearchResults>
                         {/* <h2>Filtered</h2> */}
@@ -101,24 +124,26 @@ export default function Search(props) {
                 {selected.map((item, index)=>{
                     return(
                         <Collected>
-                            <span className="collected" key={index}>{`${item.name}: ${item.price} Bells`}</span>
-                            {/* <select onChange={(e)=>{
-                                item.mult=e.target.value;
-                                setChanged(!changed)}}>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select> */}
-                            <NumInput value={item.mult} onChange={(e)=>{
+                            <CollectedItem>
+                                <span className="collected" key={index}>{`${item.name}: ${item.price} Bells`}</span>
+                            </CollectedItem>
+                            <div style={{width: "30%", border: "1px solid red"}}>
+                            <NumInput type="number" value={item.mult} onChange={(e)=>{
                                 item.mult=e.target.value;
                                 setChanged(!changed)}}/>
+                                
                             <RemoveButton onClick={()=>{removeItem(item)}}>X</RemoveButton>
+
+                            </div>
                         </Collected>
                     )
                 })}
-                {selected.length > 0 && <button onClick={clearAll}>Clear All</button>}
+                {selected.length > 0 && <Button style={{background: "white"}}onClick={clearAll}>Clear All</Button>}
                 <label htmlFor="box" aria_label="stuff">Drop-Off Box</label>
-                <Check className="switch" type="checkbox" id="box" checked={isChecked} onClick={handleCheck}/>
+                <Checkbox id="box" checked={isChecked} onClick={handleCheck} icon={<GreenCheckbox  name="checkedG" />} checkedIcon={<GreenCheckbox  name="checkedG" />}
+            name="checkedI"
+          />
+                {/* <Check className="switch" type="checkbox" id="box" checked={isChecked} onClick={handleCheck}/> */}
                 <RowDiv>
                     <h3 style={{fontSize: "1.5rem", paddingRight: "1%"}}>Total:   </h3>
                     <p style={{fontSize: "1.5rem"}}><span style={{color: "#ffd04f"}}>{total}</span>{` Bells`}</p>
