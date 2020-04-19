@@ -60,7 +60,7 @@ export default function Add(props) {
 
     const [message, setMessage] = useState("");
 
-    const [opt, setOpt] = useState(true);
+    const [opt, setOpt] = useState(false);
 
     const handleChange = e => {
         setCurrentItem({
@@ -103,7 +103,7 @@ export default function Add(props) {
                                 conditions: ''
                             })
 
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                            // window.scrollTo({ top: 0, behavior: 'smooth' });
                             
                             axios.get('https://acitems.herokuapp.com/api/search')
                                 .then(res=>props.setList(res.data))
