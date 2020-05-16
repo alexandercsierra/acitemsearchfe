@@ -9,7 +9,7 @@ import TextField from '@material-ui/core/TextField';
 import TimeSelect from './TimeSelect'
 import { Input } from '@material-ui/core';
 import MonthSelect from './MonthSelect'
-
+import {useSpring, animated} from 'react-spring'
 
 
 
@@ -60,7 +60,7 @@ export default function Add(props) {
 
     const [message, setMessage] = useState("");
 
-    const [opt, setOpt] = useState(true);
+    const [opt, setOpt] = useState(false);
 
     const handleChange = e => {
         setCurrentItem({
@@ -146,6 +146,8 @@ export default function Add(props) {
         alert("Item refers to anything that appears as a leaf. Ingredient is anything used in a recipe, such as branches, wood, or seasonal ingredients such as Bunny Day Eggs")
     }
 
+    
+
     return (
         <div>
             <h1 className="title">Add an Item</h1>
@@ -161,7 +163,7 @@ export default function Add(props) {
 
                 
                 <Label htmlFor="category" >Category</Label>
-                <SelectMUI style={{padding: ".5% 2%", marginBottom: "2%"}} value={currentItem.category} name="category" onChange={handleChange} required={true}>
+                <SelectMUI style={{padding: ".5% 2%", marginBottom: "2%", textAlign: "left"}} value={currentItem.category} name="category" onChange={handleChange} required={true}>
                     <MenuItem value="" selected disabled hidden>Select a Category</MenuItem>
                     <MenuItem value="bug">Bug</MenuItem>
                     <MenuItem value="fish">Fish</MenuItem>
@@ -184,7 +186,7 @@ export default function Add(props) {
 
 
                 { opt && 
-                    <div styles={{display: "flex", flexDirection: "column"}}>
+                    <div className="fade-in" styles={{display: "flex", flexDirection: "column"}}>
                         <MonthSelect handleChange={handleChange} currentItem={currentItem}/>
                         <TimeSelect handleTimeChange={handleTimeChange} handleChange={handleChange} currentItem={currentItem}/>
                     </div>}

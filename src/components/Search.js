@@ -127,7 +127,7 @@ export default function Search(props) {
                             <CollectedItem>
                                 <span className="collected" key={index}>{`${item.name}: ${item.price} Bells`}</span>
                             </CollectedItem>
-                            <div style={{width: "30%", border: "1px solid red"}}>
+                            <div style={{width: "30%"}}>
                             <NumInput type="number" value={item.mult} onChange={(e)=>{
                                 item.mult=e.target.value;
                                 setChanged(!changed)}}/>

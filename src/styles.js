@@ -209,5 +209,4 @@ export const Check = styled.input`
 
 export const CollectedItem = styled.div`
     width: 70%;
-    border: 1px solid red;
 `;
