@@ -134,7 +134,7 @@ export default function Search(props) {
                                 
                             <RemoveButton onClick={()=>{removeItem(item)}}>X</RemoveButton>
 
-                            </div>
+                            </div> 
                         </Collected>
                     )
                 })}
