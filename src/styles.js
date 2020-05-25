@@ -70,7 +70,6 @@ export const Textarea = styled.textarea`
 `;
 
 export const Label = styled.label`
-    // border: 1px solid red;
     font-size: 1.2rem;
     text-align: left;
     text-shadow: 2px 4px 3px rgba(0,0,0,0.75);
